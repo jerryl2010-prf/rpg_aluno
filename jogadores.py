@@ -17,14 +17,14 @@ def incluir(conn, nome, apelido):
 
 def buscar_por_id(conn, id):
     """Devolve UMA linha (id, nome, apelido), ou None."""
-    cursor = conn.execute("SELECT id, nome FROM jogadores WHERE id = ?", (id,))
+    cursor = conn.execute("SELECT id, nome, apelido FROM jogadores WHERE id = ?", (id,))
     return cursor.fetchone()
 
 
 def buscar_por_nome(conn, nome):
     """Devolve uma LISTA com os jogadores cujo nome contém o texto."""
     cursor = conn.execute(
-        "SELECT id, nome FROM jogadores WHERE nome LIKE ? ORDER BY nome",
+        "SELECT id, nome, apelido FROM jogadores WHERE nome LIKE ? ORDER BY nome",
         ("%" + nome + "%",))
     return cursor.fetchall()
 
