@@ -31,5 +31,5 @@ def buscar_por_nome(conn, nome):
 
 def listar(conn):
     """Devolve uma LISTA com todos os jogadores (id, nome, apelido)."""
-    cursor = conn.execute("SELECT id, nome FROM classes ORDER BY id")
+    cursor = conn.execute("SELECT id, nome, apelido FROM jogadores ORDER BY id")
     return cursor.fetchall()
